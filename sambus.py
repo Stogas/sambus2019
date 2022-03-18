@@ -23,7 +23,7 @@ __license__  = 'Apache License, Version 2.0'
 
 import minimalmodbus
 
-minimalmodbus.BAUDRATE = 9600
+minimalmodbus.BAUDRATE = 19200
 minimalmodbus.TIMEOUT = 0.5
 
 
