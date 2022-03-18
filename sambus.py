@@ -30,8 +30,8 @@ minimalmodbus.TIMEOUT = 0.5
 
 
 class SAMbus( minimalmodbus.Instrument ):
-    """Instrument class for System air\Villavent residential units. 
-    
+    """Instrument class for System air\Villavent residential units.
+
     Communicates via Modbus RTU protocol (via RS485), using the :mod:`minimalmodbus` Python module.
     This driver is intended to enable control of the ventilation from the command line.
     Args:
@@ -40,9 +40,9 @@ class SAMbus( minimalmodbus.Instrument ):
             * OS X: '/dev/tty.usbserial'
             * Linux: '/dev/ttyUSB0'
             * Windows: '/com3'
-            
+
         * slaveaddress (int): slave address in the range 1 to 247 (in decimal)"""
-    
+
     def __init__(self, portname, slaveadress):
         minimalmodbus.Instrument.__init__(self, portname, slaveadress)
 
@@ -124,7 +124,7 @@ class SAMbus( minimalmodbus.Instrument ):
     ## Testing the module ##
     ########################
 
-    
+
 if __name__ == '__main__':
 
     print ("TESTING SYSTEMAIR MODBUS MODULE")
@@ -132,18 +132,18 @@ if __name__ == '__main__':
 
     PORTNAME = '/dev/ttyUSB0'
     ADDRESS = 1
-    
+
     print ( 'Port: ' +  str(PORTNAME) + ', Address: ' + str(ADDRESS) )
-    
+
     instr = SAMbus(PORTNAME, ADDRESS)
-    
+
     print ( 'Model                : {0}'.format (instr.get_system_type()))
     print ( 'Last filter change   : {0} Days'.format (instr.get_filter_day()))
     print ( 'Temperatur setting   :   {0}'.format (instr.get_temp()))
     print ( 'Fan Setting          :   {0}'.format (instr.get_fan()))
     print ( 'Supply air temp      :  {0}°C'.format (instr.get_supply()))
-    print ( 'Extract air temp     :  {0}°C'.format (instr.get_extr()))   
-    print ( 'Exhaust air temp     :{0}°C'.format (instr.get_exha()))  
+    print ( 'Extract air temp     :  {0}°C'.format (instr.get_extr()))
+    print ( 'Exhaust air temp     :{0}°C'.format (instr.get_exha()))
     print ( 'Overheat sensor      :  {0}°C'.format (instr.get_heat()))
     print ( 'Outdoor air          :   {0}°C'.format (instr.get_out()))
 
